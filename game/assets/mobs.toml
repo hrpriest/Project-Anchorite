@@ -9,3 +9,16 @@
     description = 'A green lean ugly machine'
     total_health = 100
     current_health = 100
+
+[demon]
+    name = 'Demon'
+    description = 'Shadowy demon'
+    total_health = 200
+    current_health = 200
+
+    
+[imp]
+    name = 'Imp'
+    description = 'Firey imp'
+    total_health = 75
+    current_health = 75

@@ -1,2 +1,0 @@
-
-PREFAB_ROOT = './prefabs'
