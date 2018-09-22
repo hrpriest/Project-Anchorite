@@ -8,8 +8,9 @@ class Character:
     health_points = 2000
     mana = 100
     
-    def __init__ (self, u_name, u_gender, u_class):
+    def __init__ (self, name, gender, class_type):
 
-        self.u_name = u_name
-        self.gender = u_gender
-        self.u_class = u_class
+        self.name = name
+        self.gender = gender
+        self.class_type = class_type
+        
