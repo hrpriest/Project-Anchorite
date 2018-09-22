@@ -1,0 +1,29 @@
+[lesser_health_potion]
+    name = 'Lesser Health Potion'
+    description = 'Heals %s health to the target'
+    
+[lesser_mana_potion]
+    name = 'Lesser Man Potion'
+    description = 'Returns %s mana to the target'
+
+[wooden_sword]
+    name = 'Wooden Sword'
+    description = 'A flimsy wooden sword used for practice fighting'
+    damage = 1
+
+[iron_sword]
+    name = 'Iron Sword'
+    description = 'A somewhat decent sword, given to lowly soldiers'
+    damage = 1.4
+
+[strong_bow]
+    name = 'Strong Bow'
+    description = 'Wooden Bow used by hunter tribes. Requires a lot of strength to pull back'
+    range = 20
+    damage = 2.4
+
+[long_bow]
+    name = 'Long Bow'
+    description = 'A large bow that requires a strong fighter to pull back'
+    range = 40
+    damage = 4.1
