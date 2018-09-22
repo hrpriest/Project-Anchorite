@@ -1,0 +1,9 @@
+# creating a character toml for consistency
+# but also because we can expand this into creating
+# multiple character types later if wanted with different
+# affinities
+[player]
+  name = ''
+  action_points = 3
+  spells = []
+  inventory = []

@@ -1,4 +1,4 @@
-game_state = Gamestate()
+from game.util.game_engine import GameEngine
 
-while(game_state.current_gamestate != Gamestate.DONE):
-    True
+game_engine = GameEngine()
+game_engine.start()

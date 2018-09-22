@@ -1,12 +1,11 @@
-### NPCS ###
-[shopkeeper]
-    name = 'Shopkeeper Lenard'
-    description = 'He likes long walks on the beach'
-
-
-### ANGRY MOBS ###
 [ice_giant]
     name = 'Ice Giant'
     description = 'One big frosty boi'
-    health = 1000
+    total_health = 250
+    current_health = 250
 
+[orc]
+    name = 'Orc'
+    description = 'A green lean ugly machine'
+    total_health = 100
+    current_health = 100
