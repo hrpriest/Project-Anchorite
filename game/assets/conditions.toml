@@ -1,0 +1,6 @@
+[burn]
+    name = 'Burn'
+    description = 'Burns the target.'
+    damage = 1
+    duration = 2
+    
