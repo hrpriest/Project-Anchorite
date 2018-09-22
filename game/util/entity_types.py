@@ -5,3 +5,4 @@ class EntityTypes(Enum):
   SPELLS = "spells"
   ITEMS = "items"  
   MOBS = "mobs"
+  CONDITIONS = "conditions"

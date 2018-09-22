@@ -1,4 +1,4 @@
-from game.item import Item
+from game.models.item import Item
 
 def test_item():
     bow = Item('strong_bow')

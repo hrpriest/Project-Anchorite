@@ -8,10 +8,17 @@ class GameEngine:
   current_gamestate = None
   player = None
   mobs = []
+  def __init__(self):
+    self.commands = {
+      '@commands' : self.print_commands,
+      '@quit': self.quit_command
+    }
 
   def start(self):
     self.entity_system = EntitySystem()
     self.current_gamestate = Gamestate.RUNNING
+
+    # ask to create a character
     self.create_charcter()
 
     while(self.current_gamestate == Gamestate.RUNNING):
@@ -28,7 +35,7 @@ class GameEngine:
 \/    |_|  \___// |\___|\___|\__| \_/ \_/_| |_|\___|_| |_|\___/|_|  |_|\__\___|
               |__/                                                             
                                                            
-
+    type @commands to view all commands
     '''
     print (welcome_message)  
     name = input('Enter your characters name: \n-> ')
@@ -41,6 +48,20 @@ class GameEngine:
       mob = self.entity_system.spawn_random_entity(EntityTypes.MOBS)
       print (f'{mob.description}, {mob.name} appears in front of you')
       self.mobs.append(mob)
-    
-    ui = input('What would you like to do? \n-> ')    
+
+    command = input('\n What would you like to do? \n-> ')
+    if command in self.commands:
+      self.commands[command]()
+
+  def print_commands(self):
+
+    print('\n\n-------------')
+    print('  commands   ')
+    print('-------------\n')
+
+    for key in self.commands:
+      print(key)
+  
+  def quit_command(self):
+    self.current_gamestate = Gamestate.END
 
