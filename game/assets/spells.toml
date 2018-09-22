@@ -1,0 +1,82 @@
+#magical damage types
+[lightning_bolt]
+    name = 'Lighting Bolt'
+    description = 'A bolt of lighting that errupts from your hands dealing {{target_damage}} {{damage_type}} damage at the cost of {{action_point_cost}} action point.'
+    target_damage = 200
+    action_point_cost = 1
+    damage_type = 'magical'
+
+[fireball]
+    name = 'Fireball'
+    description = ''
+    target_damage = 50
+    self_damage = 0
+    self_heal = 0
+    action_point_cost = 2
+    crit_chance = 0.0
+    damage_type = 'magical'
+    miss_chance = 0.0
+    target_conditions = ['Burn']
+
+[life_rip]
+    name = 'Life Rip'
+    description = ''
+    target_damage = 200
+    self_damage = 0
+    self_heal = 200
+    action_point_cost = 2
+    crit_chance = 0.0
+    damage_type = 'magical'
+    miss_chance = 0.0
+    target_conditions = []
+
+#conditions
+[sleep]
+    name = 'Sleep'
+    description = ''
+    target_damage = 0
+    self_damage = 0
+    self_heal = 0
+    action_point_cost = 3
+    crit_chance = 0.0
+    damage_type = ''
+    miss_chance = 0.5
+    target_conditions = ['Sleep']
+
+[self_heal]
+    name = 'Self Heal'
+    description = ''
+    target_damage = 0
+    self_damage = 0
+    self_heal = 50
+    action_point_cost = 1
+    crit_chance = 0.0
+    damage_type = ''
+    miss_chance = 0.0
+    target_conditions = ['Self Heal']
+
+[crit_boost]
+    name = 'Critical strike boost'
+    description = ''
+    target_damage = 0
+    self_damage = 0
+    self_heal = 0
+    action_point_cost = 1
+    crit_chance = 0.0
+    damage_type = ''
+    miss_chance = 0.0
+    target_conditions = ['Crit Boost']
+
+#physical damage types
+[heavy_strike]
+    name = 'Heavy Strike'
+    description = ''
+    target_damage = 300
+    self_damage = 0
+    self_heal = 0
+    action_point_cost = 3
+    crit_chance = 0.5
+    damage_type = 'Physical'
+    miss_chance = 0.1
+    target_conditions = ['Crit Boost']
+
