@@ -6,6 +6,7 @@ class Character:
     dexterity = random.randint(250, 750)
     magic = random.randint(250, 750)
     health_points = 2000
+    mana = 100
     
     def __init__ (self, u_name, u_gender, u_class):
 
