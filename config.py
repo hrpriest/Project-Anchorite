@@ -1,0 +1,2 @@
+
+PREFAB_ROOT = './prefabs'
