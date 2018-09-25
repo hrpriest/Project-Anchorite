@@ -5,5 +5,7 @@
 [player]
   name = ''
   action_points = 3
-  spells = []
-  items = []
+  spells = {}
+  items = {}
+  total_health = 200
+  current_health = 200

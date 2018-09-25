@@ -15,6 +15,19 @@ class Spell:
 
     def __str__(self):
         return 'name'
-        
+
     def use(self, caster, targets):
-        pass
+        if self.self_damage != 0:
+            print(f'{caster.name} took {self.self_damage} damage')
+            caster.current_health += self.self_damage
+            
+        if self.self_heal != 0:
+            print(f'{caster.name} healed for {self.self_heal}')
+            caster.current_health += self.self_heal
+        
+        
+        
+        for target in targets:
+            if self.target_damage != 0:
+                print(f'{target.name} took {self.target_damage} damage')
+                target.current_health -= self.target_damage

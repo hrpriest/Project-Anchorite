@@ -18,9 +18,9 @@ class GUI:
     
   @classmethod
   def commands_view(cls):
-    print('\n-------------')
-    print('  commands   ')
-    print('-------------\n')
+
+    print('\ncommands   ')
+    print('---------------')
 
     for key in cls.commands:
       print(key)
@@ -42,13 +42,13 @@ class GUI:
 \/    |_|  \___// |\___|\___|\__| \_/ \_/_| |_|\___|_| |_|\___/|_|  |_|\__\___|
               |__/                                                             
                                                            
-    type @commands to view all commands
     '''
     print (welcome_message)  
     name = input('Enter your characters name: \n-> ')
     
     spells = {}
     print('\n\nChoose your first three spells: ')
+    print('------------------------------------')
     cls.all_spells_view()
     while len(spells) < 3:
       spell = input('-> ')
@@ -70,45 +70,91 @@ class GUI:
       mobs.append(mob)
     else:
       for mob in mobs:
-        print(f'{mob.name} has {mob.current_health}')
-  
+        print(f'{mob.name} has {mob.current_health} hp')
+        
+  @classmethod
+  def players_view(cls, players):
+    for player in players:
+      if player.is_dead():
+        print(f'{player.name} died!')
+      else:
+        print(f'{player.name} has {player.current_health} hp')
+      
   @classmethod
   def action_view(cls, player):
     action = None
-    while action == None:
-      print('\nWhat would you like to do?')
-      cls.commands_view()
+    print('\nWhat would you like to do?')
+    cls.commands_view()
 
+    while action == None:
       command = input('-> ')
       if command in cls.commands:
         action = cls.commands[command](player)
+      
+      if action == "@back":
+        print('\nWhat would you like to do?')
+        action = None
+    
     return action
 
   @classmethod
   def attack_view(cls, player):
     for spell_key, spell in player.spells.items():
       print(f'{spell_key} - {spell.name}')
-    spell = input('-> ')
-    if spell in player.spells:
-      return player.spells[spell]
-    else:
-      return None
+    print('@back')
+
+    spell = None
+    while spell == None:  
+      spell_choice = input('-> ')
+      if spell_choice in player.spells:
+        spell = player.spells[spell_choice]
+      elif spell_choice == '@back':
+        spell = spell_choice
+      else:
+        print('Spell not recognized.')
+        spell = None
+  
+    return spell
 
   @classmethod
   def item_view(cls, player):
+    if len(player.items) == 0:
+      print('You have no items!')
+      return '@back'
+    
     for item_key, item in player.items.items():
       print(f'{item.key} - {item.name}')
-    item = input('-> ')
-    if item in player.items:
-      return player.items[item]
-    else:
-      return None
+    print('@back')
+
+    item = None
+    while item == None:
+      item_choice = input('-> ')
+      if item_choice in player.items:
+        item = player.items[item_choice]
+      elif item_choice == '@back':
+        item = item_choice
+      else:
+        print('Item not recognized')
+        item = None
+    
+    return item
 
   @classmethod
   def combat_view(cls, action, player, mobs):
     print(f'\n**********')
-    print(f'{player.name} used {action.name}')    
-    print(f'**********')
+    mobs_spell = EntitySystem.spawn_random_entity(EntityTypes.SPELLS)
+    for mob in mobs:
+      print(f'{mob.name} used {mobs_spell.name}')
+      mobs_spell.use(mob, [player])
+
+    print(f'{player.name} used {action.name}')
+    action.use(player, mobs)
+
+    for mob in mobs[:]:
+      if mob.current_health <= 0:
+        print(f'{mob.name} died!')
+        mobs.remove(mob)
+    print(f'**********\n')
 
   @classmethod
   def all_spells_view(cls):

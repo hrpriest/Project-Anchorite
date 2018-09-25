@@ -7,3 +7,6 @@ class Character:
   items = {}
   total_health = 0
   current_health = 0
+
+  def is_dead(self):
+    return self.current_health <= 0
