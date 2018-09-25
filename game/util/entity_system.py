@@ -9,15 +9,14 @@ from game.models.condition import Condition
 import toml
 
 class EntitySystem:
+  entities = {}
 
-  def __init__(self):
+  def initialize():
     # load all entities into our system
-    self.entities = {}
-
     for types in EntityTypes:
-      self.entities[types.value] = toml.load(f'./game/assets/{types.value}.toml')   
+      EntitySystem.entities[types.value] = toml.load(f'./game/assets/{types.value}.toml')   
 
-    self.loaders = {
+    EntitySystem.loaders = {
       EntityTypes.CHARACTERS.value : lambda key : Character(key),
       EntityTypes.ITEMS.value : lambda key : Item(key),
       EntityTypes.MOBS.value : lambda key : Mob(key),
@@ -25,9 +24,17 @@ class EntitySystem:
       EntityTypes.CONDITIONS.value : lambda key : Condition(key)
     }
 
-  def spawn_random_entity(self, entity_type):
+  @staticmethod
+  def spawn_random_entity(entity_type):
     # spawn a random entity of certain type
-    max_rand_index = len(self.entities[entity_type.value].keys()) - 1
+    max_rand_index = len(EntitySystem.entities[entity_type.value].keys()) - 1
     rand_entity_index = randint(0, max_rand_index)
-    entity_name = list(self.entities[entity_type.value].keys())[rand_entity_index]
-    return self.loaders[entity_type.value](entity_name)
+    entity_name = list(EntitySystem.entities[entity_type.value].keys())[rand_entity_index]
+    return EntitySystem.loaders[entity_type.value](entity_name)
+
+  @staticmethod
+  def get_all_entities_by_type(entity_type):
+    entities = []
+    for key in EntitySystem.entities[entity_type.value].keys():
+      entities.append(EntitySystem.loaders[entity_type.value](key))
+    return entities

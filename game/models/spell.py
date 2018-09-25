@@ -12,6 +12,9 @@ class Spell:
     damage_type = ''
     miss_chance = 0.0
     target_conditions = []
-    
+
+    def __str__(self):
+        return 'name'
+        
     def use(self, caster, targets):
         pass

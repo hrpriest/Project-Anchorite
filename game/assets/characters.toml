@@ -6,4 +6,4 @@
   name = ''
   action_points = 3
   spells = []
-  inventory = []
+  items = []

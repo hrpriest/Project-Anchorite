@@ -16,7 +16,7 @@
     crit_chance = 0.0
     damage_type = 'magical'
     miss_chance = 0.0
-    target_conditions = ['Burn']
+    target_conditions = ['burn']
 
 [life_rip]
     name = 'Life Rip'
@@ -41,7 +41,7 @@
     crit_chance = 0.0
     damage_type = ''
     miss_chance = 0.5
-    target_conditions = ['Sleep']
+    target_conditions = ['sleep']
 
 [self_heal]
     name = 'Self Heal'
@@ -53,7 +53,7 @@
     crit_chance = 0.0
     damage_type = ''
     miss_chance = 0.0
-    target_conditions = ['Self Heal']
+    target_conditions = ['self_heal']
 
 [crit_boost]
     name = 'Critical strike boost'
@@ -65,7 +65,7 @@
     crit_chance = 0.0
     damage_type = ''
     miss_chance = 0.0
-    target_conditions = ['Crit Boost']
+    target_conditions = ['crit_boost']
 
 #physical damage types
 [heavy_strike]
@@ -78,5 +78,5 @@
     crit_chance = 0.5
     damage_type = 'Physical'
     miss_chance = 0.1
-    target_conditions = ['Crit Boost']
+    target_conditions = ['crit_boost']
 
